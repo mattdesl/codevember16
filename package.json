@@ -1,0 +1,52 @@
+{
+  "name": "codevember16",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Matt DesLauriers",
+    "email": "dave.des@gmail.com",
+    "url": "https://github.com/mattdesl"
+  },
+  "semistandard": {
+    "globals": [
+      "THREE"
+    ]
+  },
+  "dependencies": {
+    "glsl-hash-blur": "^1.0.3",
+    "glsl-luma": "^1.0.1",
+    "glslify": "^6.0.1",
+    "new-array": "^1.0.0",
+    "nice-color-palettes": "^1.0.1",
+    "object-assign": "^4.1.0",
+    "orbit-controls": "^1.1.1",
+    "query-string": "^4.2.3",
+    "raf-loop": "^1.1.3",
+    "three": "^0.82.1",
+    "three-effectcomposer": "0.0.1",
+    "three-shader-fxaa": "^5.1.1"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.1",
+    "budo": "^9.2.1",
+    "uglify-js": "^2.7.4"
+  },
+  "scripts": {
+    "test": "node test.js",
+    "build": "browserify index.js -t babelify -t glslify | uglifyjs -m -c warnings=false > app/bundle.js",
+    "start": "budo index.js:bundle.js --dir app --live -- -t babelify -t glslify"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattdesl/codevember16.git"
+  },
+  "homepage": "https://github.com/mattdesl/codevember16",
+  "bugs": {
+    "url": "https://github.com/mattdesl/codevember16/issues"
+  }
+}
