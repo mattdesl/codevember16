@@ -1,5 +1,5 @@
 const createApp = require('./lib/createApp');
-const createAttractor = require('./lib/createAttractor');
+const createDemo = require('./lib/demos/createCloth');
 const createLoop = require('raf-loop');
 
 const app = createApp();
@@ -15,7 +15,7 @@ document.body.appendChild(app.canvas);
 document.body.style.margin = '0';
 document.body.style.overflow = 'hidden';
 
-const component = createAttractor(app);
+const component = createDemo(app);
 app.scene.add(component.object3d);
 
 createLoop(dt => {

@@ -18,27 +18,36 @@
     "glsl-hash-blur": "^1.0.3",
     "glsl-luma": "^1.0.1",
     "glslify": "^6.0.1",
+    "lerp": "^1.0.3",
     "new-array": "^1.0.0",
     "nice-color-palettes": "^1.0.1",
     "object-assign": "^4.1.0",
     "orbit-controls": "^1.1.1",
     "query-string": "^4.2.3",
     "raf-loop": "^1.1.3",
+    "random-float": "^1.0.0",
     "three": "^0.82.1",
     "three-effectcomposer": "0.0.1",
-    "three-shader-fxaa": "^5.1.1"
+    "three-shader-fxaa": "^5.1.1",
+    "verlet-constraint": "^1.1.0",
+    "verlet-point": "^1.2.1",
+    "verlet-system": "^1.0.15"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.18.0",
     "babelify": "^7.3.0",
     "browserify": "^13.1.1",
     "budo": "^9.2.1",
+    "simplex-noise": "^2.2.0",
+    "surge": "^0.18.0",
     "uglify-js": "^2.7.4"
   },
   "scripts": {
     "test": "node test.js",
-    "build": "browserify index.js -t babelify -t glslify | uglifyjs -m -c warnings=false > app/bundle.js",
-    "start": "budo index.js:bundle.js --dir app --live -- -t babelify -t glslify"
+    "deploy:upload": "surge -p app -d mattdesl-codevember16.surge.sh",
+    "deploy": "npm run build && npm run deploy:upload",
+    "build": "browserify index.js -t babelify -t glslify | uglifyjs -m -c warnings=false > app/bundles/attractors.js",
+    "start": "budo index.js:bundles/attractors.js --dir app --live -- -t babelify -t glslify"
   },
   "keywords": [],
   "repository": {

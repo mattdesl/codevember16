@@ -17,7 +17,7 @@ varying vec3 vLightFront;
 #include <shadowmask_pars_fragment>
 
 void main() {
-  // gl_FragColor = vec4(vec3(1.0), 1.0);
+  // gl_FragColor = vec4(vec3(0.5), 1.0);
   // gl_FragColor = vec4(vec3(0.5) * (getShadowMask()), 1.0);
   // gl_FragColor = vec4(mix(vec3(1.0), vec3(getShadowMask()), opacity), 1.0);
   gl_FragColor = vec4(vec3(0.0), (1.0 - getShadowMask()) * opacity);
