@@ -20999,6 +20999,7 @@
 			}
 
 			if ( programChange ) {
+				if (material.name === 'test-standard') debugger;
 
 				if ( parameters.shaderID ) {
 

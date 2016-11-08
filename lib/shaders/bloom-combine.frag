@@ -7,6 +7,6 @@ uniform vec2 resolution;
 
 void main () {
   vec4 blurred = texture2D(tBloomDiffuse, vUv);
-  blurred.rgb *= 0.15;
+  blurred.rgb *= 0.25;
   gl_FragColor = texture2D(tDiffuse, vUv) + blurred;
 }
