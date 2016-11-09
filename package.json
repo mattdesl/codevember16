@@ -22,6 +22,7 @@
     "glsl-hsl2rgb": "^1.1.0",
     "glsl-luma": "^1.0.1",
     "glslify": "^6.0.1",
+    "ios-safe-audio-context": "^1.0.1",
     "lerp": "^1.0.3",
     "load-bmfont": "^1.2.3",
     "map-limit": "0.0.1",
@@ -62,7 +63,8 @@
     "deploy:upload": "surge -p app -d mattdesl-codevember16.surge.sh",
     "deploy": "npm run build && npm run deploy:upload",
     "build": "browserify index.js -t babelify -t glslify | uglifyjs -m -c warnings=false > app/bundles/attractors.js",
-    "start": "budo index.js:bundles/attractors.js --dir app --live -- -t babelify -t glslify"
+    "start1": "budo lib/demos/attractors.js:bundles/attractors.js --dir app --live -- -t babelify -t glslify",
+    "start": "budo lib/demos/cloth.js:bundles/cloth.js --dir app --live -- -t babelify -t glslify"
   },
   "keywords": [],
   "repository": {

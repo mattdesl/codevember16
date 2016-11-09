@@ -3,16 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, shrink-to-fit=0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-  <title>@mattdesl — strange attractors</title>
+  <title>@mattdesl — cloth</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:900" rel="stylesheet">
   <style>
+  canvas {
+  }
   body {
     background: white;
     overflow: hidden;
+  }
+  header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', Helvetica, sans-serif;
+    font-weight: 700;
+    width: 100%;
+    text-align: left;
+  }
+  header > p {
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    color: white;
+    opacity: 1.0;
   }
   </style>
 </head>
 <body>
   <canvas id="canvas"></canvas>
+  <header>
+    <p>LOADING THE FUNK</p>
+    <p></p>
+  </header>
   <script src="vendor/three.js"></script>
   <script src="vendor/RGBELoader.js"></script>
   <script src="vendor/HDRCubeTextureLoader.js"></script>
@@ -20,6 +44,6 @@
   <script src="vendor/Encodings.js"></script>
   <script src="vendor/PMREMGenerator.js"></script>
   <script src="vendor/PMREMCubeUVPacker.js"></script>
-  <script src="bundles/attractors.js"></script>
+  <script src="bundles/cloth.js"></script>
 </body>
 </html>
