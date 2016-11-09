@@ -62,7 +62,9 @@
     "test": "node test.js",
     "deploy:upload": "surge -p app -d mattdesl-codevember16.surge.sh",
     "deploy": "npm run build && npm run deploy:upload",
-    "build": "browserify index.js -t babelify -t glslify | uglifyjs -m -c warnings=false > app/bundles/attractors.js",
+    "build1": "browserify lib/demos/attractors.js -t babelify -t glslify | uglifyjs -m -c warnings=false > app/bundles/attractors.js",
+    "build2": "browserify lib/demos/cloth.js -t babelify -t glslify | uglifyjs -m -c warnings=false > app/bundles/cloth.js",
+    "build": "npm run build1 && npm run build2",
     "start1": "budo lib/demos/attractors.js:bundles/attractors.js --dir app --live -- -t babelify -t glslify",
     "start": "budo lib/demos/cloth.js:bundles/cloth.js --dir app --live -- -t babelify -t glslify"
   },
