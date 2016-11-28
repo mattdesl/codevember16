@@ -21,7 +21,7 @@ uniform float chaos;
 #include <clipping_planes_pars_vertex>
 
 #pragma glslify: noise = require('glsl-noise/simplex/4d');
-#pragma glslify: ease1 = require('glsl-easings/quintic-in-out');
+#pragma glslify: ease1 = require('glsl-easings/linear');
 #pragma glslify: ease2 = require('glsl-easings/linear');
 #define PI 3.14159265359
 
