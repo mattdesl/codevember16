@@ -21,7 +21,7 @@ uniform float chaos;
 #include <clipping_planes_pars_vertex>
 
 #pragma glslify: noise = require('glsl-noise/simplex/4d');
-#pragma glslify: ease1 = require('glsl-easings/quadratic-in-out');
+#pragma glslify: ease1 = require('glsl-easings/quintic-in-out');
 #pragma glslify: ease2 = require('glsl-easings/linear');
 #define PI 3.14159265359
 
@@ -78,17 +78,17 @@ void main() {
   #include <skinning_vertex>
 
   
-  float sinNorm = ease1(sin(time) * 0.5 + 0.5);
+  float sinNorm = (sin(time) * 0.5 + 0.5);
 
-  float sf1 = mix(0.0, 1.5, sinNorm);
+  float sf1 = mix(0.0, 1.5, ease1((sin(time) * 0.5 + 0.5)));
   float sf2 = sinNorm * 0.5;
   float scale = 1.0;
-  float sn1 = ease1(noise(vec4(position.xyz * sf1, time * 0.15)) * 0.5 + 0.5);
-  float sn2 = noise(vec4(position.xyz * sf2, time * 0.5)) * 0.5 + 0.5;
+  float sn1 = (noise(vec4(position.xyz * sf1, time * 0.15)) * 0.5 + 0.5);
+  float sn2 = (noise(vec4(position.xyz * sf2, time * 0.5)) * 0.5 + 0.5);
   vec3 original = transformed;
   transformed += randomSphere(scale, sn1, sn2) * 1.0;
 
-  float f1 = ease2(sin(cos(time)) * 0.5 + 0.5) * 1.0;
+  float f1 = (sin(cos(time)) * 0.5 + 0.5) * 1.0;
   float f2 = sinNorm * 0.05;
   float f3 = sinNorm * 0.05;
   float n1 = noise(vec4(transformed.xyz * f1, time * 0.15)) * 0.5 + 0.5;

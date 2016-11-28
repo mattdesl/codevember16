@@ -69,7 +69,7 @@
     "deploy": "npm run build && npm run deploy:upload",
     "build1": "browserify lib/demos/attractors.js -t babelify -t glslify | uglifyjs -m -c warnings=false > app/bundles/attractors.js",
     "build2": "browserify lib/demos/cloth.js -t babelify -t glslify | uglifyjs -m -c warnings=false > app/bundles/cloth.js",
-    "build3": "browserify lib/demos/cloth.js -t babelify -t glslify | uglifyjs -m -c warnings=false > app/bundles/lines.js",
+    "build3": "browserify lib/demos/lines.js -t babelify -t glslify | uglifyjs -m -c warnings=false > app/bundles/lines.js",
     "build": "npm run build1 && npm run build2 && npm run build3",
     "start2": "budo lib/demos/lines.js:bundles/lines.js --dir app --live -- -t babelify -t glslify",
     "start1": "budo lib/demos/attractors.js:bundles/attractors.js --dir app --live -- -t babelify -t glslify",

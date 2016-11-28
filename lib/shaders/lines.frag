@@ -14,6 +14,7 @@ varying vec3 vPosition;
 #pragma glslify: noise = require('glsl-noise/simplex/2d');
 #pragma glslify: aastep = require('glsl-aastep');
 #pragma glslify: luma = require('glsl-luma');
+#pragma glslify: ease1 = require('glsl-easings/linear');
 
 #ifndef STANDARD
   uniform float clearCoat;
@@ -88,7 +89,7 @@ void main() {
   
   float threshold = 0.5;
   // float repeats = 40.0 * frequencies;
-  float repeats = mix(0.5, 20.0, sin(time * 0.5) * 0.5 + 0.5);
+  float repeats = mix(0.5, 20.0, (sin(time * 0.5) * 0.5 + 0.5));
   // float repeats = 30.0;
   float uCoord = vUv.x;
   float vCoord = vUv.y;
