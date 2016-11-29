@@ -80,9 +80,9 @@ void main() {
   
   float sinNorm = (sin(time) * 0.5 + 0.5);
 
-  float sf1 = mix(0.0, 1.5, ease1((sin(time) * 0.5 + 0.5)));
-  float sf2 = sinNorm * 0.5;
-  float scale = 1.0;
+  float sf1 = mix(0.0, 2.5, ease1((sin(time) * 0.5 + 0.5)));
+  float sf2 = sinNorm * 2.5;
+  float scale = sinNorm;
   float sn1 = (noise(vec4(position.xyz * sf1, time * 0.15)) * 0.5 + 0.5);
   float sn2 = (noise(vec4(position.xyz * sf2, time * 0.5)) * 0.5 + 0.5);
   vec3 original = transformed;
@@ -98,7 +98,7 @@ void main() {
   vQuat = quat;
   transformed = qrot(quat, transformed);
   transformed = mix(original, transformed, chaos);
-  vNormal = normalize(transformed.xyz);
+  vNormal = normalize(normalMatrix * normalize(transformed.xyz));
   vPosition = transformed;
   vTexCoord = uv;
 

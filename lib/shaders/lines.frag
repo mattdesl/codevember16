@@ -87,18 +87,18 @@ void main() {
   // d = aastep(0.5, noise(vec2(vTexCoord.y * frequency + time, 1.0)) * 0.5 + 0.5);
   
   
-  float threshold = 0.5;
-  // float repeats = 40.0 * frequencies;
-  float repeats = mix(0.5, 20.0, (sin(time * 0.5) * 0.5 + 0.5));
-  // float repeats = 30.0;
-  float uCoord = vUv.x;
-  float vCoord = vUv.y;
-  d = pattern(vCoord, repeats, threshold);
-  diffuseColor.rgb = mix(vec3(0.15), vec3(7.0), 1.0 - d);
-
+  // float threshold = 0.5;
+  // // float repeats = 40.0 * frequencies;
+  // float repeats = mix(0.5, 20.0, (sin(time * 0.5) * 0.5 + 0.5));
+  // // float repeats = 30.0;
+  // float uCoord = vUv.x;
+  // float vCoord = vUv.y;
+  // d = pattern(vCoord, repeats, threshold);
+  // diffuseColor.rgb = mix(vec3(0.15), vec3(7.0), 1.0 - d);
+  diffuseColor.rgb *= 0.0;
   // d += aastep(0.5, (noise(vec2(vPosition.x * 10.0, vPosition.y * 0.5)) * 0.5 + 0.5));
-  metalnessFactor *= d;
-  roughnessFactor *= (1.0 - d * 0.75);
+  // metalnessFactor *= d;
+  // roughnessFactor *= (1.0 - d * 0.75);
   // if (d < 0.001) discard;
   
   #include <normal_flip>
@@ -116,7 +116,8 @@ void main() {
 
   gl_FragColor = vec4( vec3(luma(outgoingLight)), diffuseColor.a );
   // gl_FragColor.a = d;
-  
+  gl_FragColor.rgb = vec3(0.0);
+
   #include <premultiplied_alpha_fragment>
   #include <tonemapping_fragment>
   #include <encodings_fragment>
